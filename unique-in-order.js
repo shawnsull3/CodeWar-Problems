@@ -2,11 +2,20 @@
 // of items without any elements with the same value next to each other and preserving the original 
 // order of elements.
 
-const uniqueInOrder = function(iterable){
-  // iterate over the input str or arr
-    // if current val not equal to prev val
-      // push to return array
-    // else skip to next
+const uniqueInOrder = function(iterable) {
+  if (iterable.length === 0) {
+      return [];
+  }
+  
+  const returnArr = [iterable[0]];
+
+  for (let i = 1; i < iterable.length; i++) {
+      if (iterable[i-1] !== iterable[i]) {
+        returnArr.push(iterable[i]);
+      }
+  }
+
+  return returnArr;
 }
 
 // Test Suite
