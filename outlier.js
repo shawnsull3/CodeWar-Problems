@@ -11,8 +11,27 @@
 // Should return: 160 (the only even number)
 
 function findOutlier(integers){
-  // iterate over input array
-  // determine if each index is even or odd
-  // if an even array return the value at the index of the odd
-  // if odd, return the even
+  const evens = []
+  const odds = []
+
+  for (let i = 0; i < integers.length; i++) {
+    if (Math.abs(integers[i]) % 2 === 0) {
+        evens.push(integers[i]);
+    } else {
+        odds.push(integers[i]);
+    }
+
+    if (evens.length >= 2 && odds.length === 1) {
+        console.log(odds[0])
+        return odds[0];
+    } else if (odds.length >= 2 && evens.length === 1) {
+        console.log(evens[0])
+        return evens[0];
+    }
+  }
 }
+
+findOutlier([1, 2, 4]); // 1
+findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]); // 11
+findOutlier([160, 3, 1719, 19, 11, 13, -21]); // 160
+
