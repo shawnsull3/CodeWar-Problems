@@ -4,9 +4,18 @@
 // referred to as Pascal case).
 
 function toCamelCase(str){
-  // iterate over str
-  // if char === - or _
-    // delete it, and take the next char and turn it to uppercase
+  let camelCase = '';
+
+  for (let i = 0; i < str.length; i++) {
+      if (str[i] === '-' || str[i] === '_') {
+          camelCase += str[i+1].toUpperCase();
+          i++;
+      } else {
+          camelCase += str[i];
+      }
+  }
+
+  return camelCase;
 }
 
 toCamelCase("the-stealth-warrior") // returns "theStealthWarrior"
