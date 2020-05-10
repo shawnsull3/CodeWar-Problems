@@ -5,10 +5,19 @@
 function list(names){
   let returnStr = '';
 
-  // iterate over str
-  // adding each name and a comma to the returnStr 
-  // if it's the second to last value
-    // add an & instead
+  if (names.length === 1) {
+    return names[0].name;
+  } 
+
+  for (let i = 0; i < names.length; i++) {
+      if (i === names.length - 2) {
+          returnStr += `${names[i].name} & `;
+      } else if (i === names.length -1) {
+        returnStr += names[i].name;
+      } else {
+        returnStr += `${names[i].name}, `;
+      }
+  }
 
   return returnStr;
 }
