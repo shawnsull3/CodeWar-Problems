@@ -7,7 +7,8 @@
 
 const duplicateEncode = (word) => {
     let returnStr = '';
-    word = word.toLowerCase().split('').map(char => {
+    word = word.toLowerCase();
+    word.split('').map(char => {
         let count = idx = 0;
         while (idx !== -1) {
             idx = word.indexOf(char, idx);
@@ -21,11 +22,12 @@ const duplicateEncode = (word) => {
         }
         count > 1 ? returnStr += ')' : returnStr += '(';
     })
+    console.log(returnStr)
     return returnStr;
 }
 
-duplicateEncode("Din"); // ==== (((
-duplicateEncode("recede"); // === ()()()
-duplicateEncode("Success"); // === )())())
-duplicateEncode("(( @"); // ==== ))((
-duplicateEncode("bbac"); // === ())(
+// duplicateEncode("Din"); // ==== (((
+// duplicateEncode("recede"); // === ()()()
+// duplicateEncode("Success"); // === )())())
+// duplicateEncode("(( @"); // ==== ))((
+duplicateEncode("(RvlRRRkIRRRRORRR"); // === ()(()))(())))()))
