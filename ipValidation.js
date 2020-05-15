@@ -13,23 +13,22 @@
 // 123.045.067.089
 
 function isValidIP(str) {
-    const octets = str.split('.');
+    const octets = str.split('.')
 
     if(octets.length !== 4) {
         return false;
     }
-
     for(let i = 0; i < octets.length; i++) {
-        if (octets[i] < 0 || octets[i] > 255) {
-            console.log('false')
+        if (octets[i] < 0 || octets[i] > 255 || isNaN(Number(octets[i]))) {
+            console.log('false');
             return false;
         }
     }
     console.log('true');
     return true;
 }
-
 isValidIP('123.45.67.89'); // true
 isValidIP('123.045.067.0899'); // false
 isValidIP('66.277.24.197'); // false
+isValidIP('171.168.85.cd'); // false
 
