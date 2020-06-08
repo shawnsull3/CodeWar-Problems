@@ -9,11 +9,18 @@
 // arrayDiff([1,2,2,2,3],[2]) == [1,3]
 
 function arrayDiff(a, b) {
-  // loop over input b
-    // delete values in a if found with indexOf
-    // check all values in a
-
- // return a
+  for (let i=0; i < b.length; i++) {
+    const checker = function(value) {
+        if (a.indexOf(value) !== -1) {
+            a.splice(a.indexOf(value), 1);
+            checker(value);
+        }
+        return;
+    }
+    checker(b[i]);
+  }
+  console.log(a);
+  return a;
 }
 
 arrayDiff([1,2],[1]) // [2]
