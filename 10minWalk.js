@@ -16,8 +16,28 @@ function isValidWalk(walk) {
         // determine if the sequence gets back to the OG position
             // thinking of a grid => x: n = 1, s = -1 || y: e = 1, w = -1
             // position starts and should end at 0, 0
+
+    let position = [0, 0];
+    if (walk.length !== 10) {
+        console.log(false);
+        return false;
+    }
+
+    for (let i = 0; i < walk.length; i++) {
+        walk[i] === 'n' ? position[0]++
+          : walk[i] === 's' ? position[0]--
+          : walk[i] === 'e' ? position[1]++
+          : position[1]--
+    }
+    console.log(position);
+    if (position[0] === 0 && position[1] === 0) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 isValidWalk(['n','s','n','s','n','s','n','s','n','s']) // true
-isValidWalk(['w','e','w','e','w','e','w','e','w','e','w','e']) // false
+isValidWalk(['w','e','w','e','w','e','w','e','w','e']) // true
 isValidWalk(['w','e']) //false
