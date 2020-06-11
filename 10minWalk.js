@@ -10,13 +10,6 @@
 // of course, return you to your starting point. Return false otherwise.
 
 function isValidWalk(walk) {
-
-    // if walk.length !== 10 return false
-        // else
-        // determine if the sequence gets back to the OG position
-            // thinking of a grid => x: n = 1, s = -1 || y: e = 1, w = -1
-            // position starts and should end at 0, 0
-
     let position = [0, 0];
     if (walk.length !== 10) {
         console.log(false);
@@ -35,7 +28,6 @@ function isValidWalk(walk) {
     } else {
         return false;
     }
-
 }
 
 isValidWalk(['n','s','n','s','n','s','n','s','n','s']) // true
