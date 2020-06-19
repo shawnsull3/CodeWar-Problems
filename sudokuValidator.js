@@ -7,7 +7,7 @@ function validSolution(board){
             }
         }
     }
-    // col check
+     // col check
     for (let col = 0; col < 9; col++) {
         let array = []
         for (let row = 0; row < 9; row++) {
@@ -27,24 +27,23 @@ function validSolution(board){
                 squareArr.push(board[row + i][col + j])
             }
         }
+        console.log(squareArr)
         for (let i = 0; i < 9; i++) {
             if (squareArr.lastIndexOf(squareArr[i]) !== i) {
                 return false;
             }
         }
     }
-    squareCheck(0,0)
-    squareCheck(3,0)
-    squareCheck(6,0)
-    squareCheck(0,3)
-    squareCheck(3,3)
-    squareCheck(6,3)
-    squareCheck(0,6)
-    squareCheck(3,6)
-    squareCheck(6,6)
+    const squarePoints = [[0,0], [0,3], [0,6], [3,0], [3,3], [6,3], [0,6], [3,6], [6,6]];
+    for (let i = 0; i < 9; i++) {
+        let check = squareCheck(squarePoints[i][0], squarePoints[i][1]);
+        if (check === false) {
+            return false;
+        }
+    }
 }
 
-validSolution([
+console.log(validSolution([
     [5, 3, 4, 6, 7, 8, 9, 1, 2],
     [6, 7, 2, 1, 9, 5, 3, 4, 8],
     [1, 9, 8, 3, 4, 2, 5, 6, 7],
@@ -54,7 +53,7 @@ validSolution([
     [9, 6, 1, 5, 3, 7, 2, 8, 4],
     [2, 8, 7, 4, 1, 9, 6, 3, 5],
     [3, 4, 5, 2, 8, 6, 1, 7, 9]
-]); // => true
+])); // => true
 
 validSolution([
     [5, 3, 4, 6, 7, 8, 9, 1, 2], 
