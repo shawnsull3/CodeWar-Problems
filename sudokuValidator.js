@@ -19,8 +19,29 @@ function validSolution(board){
             }
         }
     }
-
     // square check
+    const squareCheck = (row, col) => {
+        let squareArr = [];
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                squareArr.push(board[row + i][col + j])
+            }
+        }
+        for (let i = 0; i < 9; i++) {
+            if (squareArr.lastIndexOf(squareArr[i]) !== i) {
+                return false;
+            }
+        }
+    }
+    squareCheck(0,0)
+    squareCheck(3,0)
+    squareCheck(6,0)
+    squareCheck(0,3)
+    squareCheck(3,3)
+    squareCheck(6,3)
+    squareCheck(0,6)
+    squareCheck(3,6)
+    squareCheck(6,6)
 }
 
 validSolution([
