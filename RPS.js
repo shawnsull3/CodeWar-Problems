@@ -16,11 +16,24 @@
 
 var rockPaperScissors = function (n) {
     let results = [];
+    const options = ['R', 'P', 'S'];
 
     // recursive solution will be needed
-
+    const solutionGenerator = (plays) => {
+        if (plays.length === n) {
+            results.push(plays);
+            return
+        } else {
+            options.forEach( option => {
+                // plays = plays + option;
+                solutionGenerator(plays + option);
+            })
+        }
+    }
+    solutionGenerator('');
+    console.log(results);
     return results;
 };
   
-// rockPaperScissors(2);
-rockPaperScissors(3);
+rockPaperScissors(2);
+// rockPaperScissors(3);
