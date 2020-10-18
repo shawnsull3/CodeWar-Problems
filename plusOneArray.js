@@ -19,10 +19,8 @@ const upArray = (arr) => {
     if (string.indexOf('-') !== -1) {
         return null;
     }
-
-    // turn to number
-    // add one to value
-    // split back into an array
+    let num = Number(string) + 1;
+    return num.toString().split('').map(x=>+x);
 }
 
 upArray([2,3,9]) // [2,4,0]
