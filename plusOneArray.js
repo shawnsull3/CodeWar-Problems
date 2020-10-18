@@ -11,8 +11,20 @@
 // [4, 3, 2, 5] would return [4, 3, 2, 6]
 
 const upArray = (arr) => {
+    if (arr.length === 0) {
+        return null;
+    }
+    let string = arr.join('')
 
+    if (string.indexOf('-') !== -1) {
+        return null;
+    }
+
+    // turn to number
+    // add one to value
+    // split back into an array
 }
 
 upArray([2,3,9]) // [2,4,0]
 upArray([4,3,2,5]) // [4,3,2,6]
+upArray([0, -9]) // null
